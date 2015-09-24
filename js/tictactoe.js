@@ -14,6 +14,8 @@ $(document).ready(function() {
       [2, 4 ,6]
   ];
 
+  var board = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+
   var totalTurns = 0;
 
   var currentPlayer = "x";
@@ -35,13 +37,72 @@ $(document).ready(function() {
     //takes the current player's chosen square, which has been logged into an array to determine the positiion, which then logs the actual position of the player's chosen square in the game board's array
     currentPlayerSquares.push(indexOfSquare);
     console.log(chosenSquares);
+    // chosenSquares.sort();
 
-      for (var k in chosenSquares) {
-        console.log("chosensquare." + k + " = " + chosenSquares[k]);
-        var pattern = chosenSquares[k];
-        console.log(pattern);
-      };
+    var indicies = winningCombos;
 
+    for( i = 0; i < totalTurns+1 ; i++) {
+      if
+      (board[indicies[i][0]] === board[indicies[i][1]] &&
+      board[indicies[i][1]] === board[indicies[i][2]]) {
+        console.log("true")
+    }
+      else {
+        console.log("false")
+      }
+    }
+
+  //   $.each(winningCombos, function(index, combination) {
+  //     for( var i = 0; i < currentPlayerSquares.length; i++)
+  //     $.each(currentPlayerSquares, function(playerIndex, playerCombo) {
+  //       if (currentPlayerSquares === winningCombos) {
+  //       console.log("true");
+  //     }
+  //     else {
+  //       console.log("false");
+  //     }
+  //
+  //   });
+  // });
+
+      // for (var k in chosenSquares) {
+      //   console.log("chosensquare." + k + " = " + chosenSquares[k]);
+      //   var pattern = chosenSquares[k];
+      //   console.log(pattern);
+      //   console.log(pattern.sort());
+      //   var sortedPlayerSquares = pattern.sort();
+      // }
+      //
+      // if (sortedPlayerSquares == winningCombos) {
+      //   console.log("true");
+      // }
+      // else {
+      //   console.log("false");
+      // }
+
+      // winningCombos.forEach(function compareToPlayer(){
+      //   if ($.inArray(stringSquare, winningCombos)){
+      //     console.log("true");
+      //   }
+      //   else{
+      //     console.log("false");
+      //   }
+      // });
+
+
+
+      //   function comparePlayerForWin() {
+      //     for ( var i = 0; i < chosenSquares.length; i++) {
+      //         if (stringSquare == winningCombos) {
+      //           alert("true");
+      //           }
+      //         else {
+      //           alert("false");
+      //         }
+      //       }
+      // }
+      // comparePlayerForWin();
+      //
     //alternates between players
     if (currentPlayer === "x"){
       currentPlayer = "o";
@@ -50,9 +111,11 @@ $(document).ready(function() {
       currentPlayer = "x";
     }
 
-    // if (totalTurns == 8 && "no one has winningcombo matched") {
-    //   alert("Stalemate. Play again");
-    // }
+    totalTurns++;
+
+    if (totalTurns === 9 ) {//&& "no one has winningcombo matched") {
+      alert("Meow!. Play again");
+    }
 
   });
 
